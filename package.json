@@ -6,7 +6,8 @@
     "app"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --host 0.0.0.0 --open --mode development",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -34,13 +35,25 @@
   "license": "MIT",
   "homepage": "https://github.com/chartshq/generator-muze#readme",
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
+    "babel-cli": "6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "6.1.2",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.11",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
     "eslint": "^5.4.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "webpack": "^4.12.0",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^3.0.7",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "yeoman-generator": "^3.1.1"
