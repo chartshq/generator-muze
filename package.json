@@ -1,0 +1,48 @@
+{
+  "name": "generator-muze",
+  "version": "1.0.0",
+  "description": "A Yeoman generator to scaffold a basic charting app with MuzeJS",
+  "files": [
+    "app"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/chartshq/generator-muze.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "muze",
+    "charts",
+    "scaffold",
+    "generator"
+  ],
+  "author": "Charts.com <support@charts.com>",
+  "contributors": [
+    {
+      "name": "Rousan Ali",
+      "email": "rousan@fusioncharts.com",
+      "url": "https://rousan.io"
+    },
+    {
+      "name": "Akash Ghoswami",
+      "email": "akash@fusioncharts.com"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/chartshq/generator-muze#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1"
+  },
+  "dependencies": {
+    "yeoman-generator": "^3.1.1"
+  }
+}
