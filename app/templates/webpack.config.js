@@ -1,12 +1,11 @@
 const path = require('path');
 
-const entryDir = path.resolve(__dirname, './app/templates/src');
-const outFilePath = path.resolve(__dirname, './app/templates/public');
+const outFilePath = path.resolve(__dirname, 'public');
 
 module.exports = {
   entry: {
-    line: path.resolve(entryDir, 'line.js'),
-    bar: path.resolve(entryDir, 'bar.js'),
+    line: path.resolve(__dirname, './src/line.js'),
+    bar: path.resolve(__dirname, './src/bar.js'),
   },
   output: {
     path: outFilePath,

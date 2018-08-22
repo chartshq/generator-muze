@@ -1,0 +1,71 @@
+import muze from '../public/muze';
+
+const env = muze();
+const { DataModel } = muze;
+const mountPoint = document.getElementById('chart');
+
+fetch('/data/cars.json')
+  .then(res => res.json())
+  .then((data) => {
+    const schema = [
+      {
+        name: 'Name',
+        type: 'dimension',
+      },
+      {
+        name: 'Maker',
+        type: 'dimension',
+      },
+      {
+        name: 'Miles_per_Gallon',
+        type: 'measure',
+      },
+
+      {
+        name: 'Displacement',
+        type: 'measure',
+      },
+      {
+        name: 'Horsepower',
+        type: 'measure',
+      },
+      {
+        name: 'Weight_in_lbs',
+        type: 'measure',
+      },
+      {
+        name: 'Acceleration',
+        type: 'measure',
+      },
+      {
+        name: 'Origin',
+        type: 'dimension',
+      },
+      {
+        name: 'Cylinders',
+        type: 'dimension',
+      },
+      {
+        name: 'Year',
+        type: 'dimension',
+        subtype: 'temporal',
+        format: '%Y-%m-%d',
+      },
+    ];
+
+    let dm = new DataModel(data, schema);
+    dm = dm.groupBy(['Year'], {
+      Acceleration: 'mean',
+    });
+
+    const rows = ['Acceleration'];
+    const columns = ['Year'];
+
+    const canvas = env.canvas();
+    canvas
+      .rows(rows)
+      .columns(columns)
+      .data(dm)
+      .mount(mountPoint);
+  })
+  .catch(console.log.bind(console));
