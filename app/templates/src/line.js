@@ -60,12 +60,14 @@ fetch('/data/cars.json')
 
     const rows = ['Acceleration'];
     const columns = ['Year'];
-
+    console.log(mountPoint);
     const canvas = env.canvas();
     canvas
       .rows(rows)
       .columns(columns)
       .data(dm)
+      .width(600)
+      .height(500)
       .mount(mountPoint);
   })
   .catch(console.log.bind(console));

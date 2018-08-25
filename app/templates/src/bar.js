@@ -66,6 +66,8 @@ fetch('/data/cars.json')
       .rows(rows)
       .columns(columns)
       .data(dm)
+      .width(600)
+      .height(500)
       .mount(mountPoint);
   })
   .catch(console.log.bind(console));
