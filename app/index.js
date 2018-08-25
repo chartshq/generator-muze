@@ -27,6 +27,12 @@ module.exports = class extends Generator {
       this.destinationPath('package.json'),
       { name: path.basename(this.inputs.name) },
     );
+
+    this.fs.copyTpl(
+      this.templatePath('README.md'),
+      this.destinationPath('README.md'),
+      { name: path.basename(this.inputs.name) },
+    );
   }
 
   install() {
