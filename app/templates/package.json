@@ -25,5 +25,7 @@
     "webpack-cli": "^3.0.7",
     "webpack-dev-server": "^3.1.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "muze": "^1.0.0"
+  }
 }

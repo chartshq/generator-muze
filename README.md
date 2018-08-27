@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/rousan/public-server/raw/master/demo.gif" alt="generator-muze-demo">
+  <img src="https://github.com/chartshq/generator-muze/raw/master/demo.gif" alt="generator-muze-demo">
     <br>
     <br>
 </p>
@@ -43,7 +43,7 @@ Please raise a [Github issue](https://github.com/chartshq/generator-muze/issues/
 
 Your PRs and stars are always welcome.
 
-Checkout the [CONTRIBUTING](https://github.com/chartshq/generator-muze/CONTRIBUTING) guides.
+Checkout the [CONTRIBUTING](https://github.com/chartshq/generator-muze/CONTRIBUTING.md) guides.
 
 ## License
 
