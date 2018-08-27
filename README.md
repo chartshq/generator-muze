@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/chartshq/generator-muze/raw/master/demo.gif" alt="generator-muze-demo">
+  <img src="https://github.com/chartshq/generator-muze/raw/develop/demo.gif" alt="generator-muze-demo">
     <br>
     <br>
 </p>
