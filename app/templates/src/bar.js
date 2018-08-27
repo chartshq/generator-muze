@@ -1,4 +1,5 @@
-import muze from '../public/muze';
+import muze from 'muze';
+import 'muze/dist/muze.css';
 
 const env = muze();
 const { DataModel } = muze;
