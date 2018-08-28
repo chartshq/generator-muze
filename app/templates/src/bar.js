@@ -1,8 +1,7 @@
-import muze from 'muze';
+import muze, { DataModel } from 'muze';
 import 'muze/dist/muze.css';
 
 const env = muze();
-const { DataModel } = muze;
 const mountPoint = document.getElementById('chart');
 
 fetch('/data/cars.json')

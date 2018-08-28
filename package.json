@@ -48,7 +48,8 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.7",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "muze": "^1.0.0"
   },
   "dependencies": {
     "chalk": "^2.4.1",
