@@ -43,7 +43,7 @@ Please raise a [Github issue](https://github.com/chartshq/generator-muze/issues/
 
 Your PRs and stars are always welcome.
 
-Checkout the [CONTRIBUTING](https://github.com/chartshq/generator-muze/CONTRIBUTING.md) guides.
+Checkout the [CONTRIBUTING](https://github.com/chartshq/generator-muze/blob/master/CONTRIBUTING.md) guides.
 
 ## License
 
