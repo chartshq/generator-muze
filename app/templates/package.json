@@ -1,0 +1,31 @@
+{
+  "name": "<%= name %>",
+  "version": "1.0.0",
+  "description": "My awesome charting app with MuzeJS",
+  "scripts": {
+    "start": "webpack-dev-server --host 0.0.0.0 --open --mode development",
+    "build": "webpack --mode production"
+  },
+  "keywords": [
+    "chart-app",
+    "muze",
+    "charts"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "node-sass": "^4.9.3",
+    "css-loader": "^0.28.11",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.7",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "muze": "^1.0.0"
+  }
+}
