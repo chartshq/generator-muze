@@ -45,7 +45,7 @@ module.exports = class extends Generator {
   }
 
   end() {
-    this.log(yosay('Thanks for trying out MuzeJS'));
+    this.log(yosay('Thanks for trying out Muzejs'));
 
     this.log(`  ${chalk.green('cd')} ${this.inputs.name}`);
     this.log(`  ${chalk.green('npm start')}`);

@@ -1,11 +1,12 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const outFilePath = path.resolve(__dirname, 'public');
 
 module.exports = {
   entry: {
-    line: path.resolve(__dirname, './src/line.js'),
-    bar: path.resolve(__dirname, './src/bar.js'),
+    line: ['regenerator-runtime', path.resolve(__dirname, './src/line.js')],
+    bar: ['regenerator-runtime', path.resolve(__dirname, './src/bar.js')],
   },
   output: {
     path: outFilePath,
@@ -23,16 +24,24 @@ module.exports = {
       {
         test: /\.(s*)css$/,
         use: [
-          {
-            loader: 'style-loader',
-            options: { singleton: true },
-          },
+          'style-loader',
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
         ],
       },
     ],
   },
+  plugins: [
+    new CopyWebpackPlugin([
+      {
+        // Provide your node_modules path where @chartshq/muze
+        // package is installed.
+        from: path.resolve('./node_modules', '@chartshq/muze/dist'),
+        to: 'examples/',
+        ignore: ['*.DS_Store'],
+      },
+    ]),
+  ],
   devServer: {
     inline: true,
     contentBase: outFilePath,

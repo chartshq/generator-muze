@@ -1,73 +1,41 @@
-import muze, { DataModel } from 'muze';
-import 'muze/dist/muze.css';
+import muze from '@chartshq/muze';
+import '@chartshq/muze/dist/muze.css';
 
-const env = muze();
-const mountPoint = document.getElementById('chart');
+// As the muze and DataModel are asynchronous, so we need to
+// use async-await syntax.
+(async () => {
+  // Load the DataModel module.
+  const DataModel = await muze.DataModel.onReady();
 
-fetch('/data/cars.json')
-  .then(res => res.json())
-  .then((data) => {
-    const schema = [
-      {
-        name: 'Name',
-        type: 'dimension',
-      },
-      {
-        name: 'Maker',
-        type: 'dimension',
-      },
-      {
-        name: 'Miles_per_Gallon',
-        type: 'measure',
-      },
+  const data = await fetch('/data/cars.json').then(resp => resp.json());
+  const schema = await fetch('/data/cars-schema.json').then(resp => resp.json());
 
-      {
-        name: 'Displacement',
-        type: 'measure',
-      },
-      {
-        name: 'Horsepower',
-        type: 'measure',
-      },
-      {
-        name: 'Weight_in_lbs',
-        type: 'measure',
-      },
-      {
-        name: 'Acceleration',
-        type: 'measure',
-      },
-      {
-        name: 'Origin',
-        type: 'dimension',
-      },
-      {
-        name: 'Cylinders',
-        type: 'dimension',
-      },
-      {
-        name: 'Year',
-        type: 'dimension',
-        subtype: 'temporal',
-        format: '%Y-%m-%d',
-      },
-    ];
+  // Converts the raw data into a format
+  // which DataModel can consume.
+  const formattedData = await DataModel.loadData(data, schema);
 
-    let dm = new DataModel(data, schema);
-    dm = dm.groupBy(['Origin'], {
-      Acceleration: 'mean',
-    });
+  // Create a new DataModel instance with
+  // the formatted data.
+  let dm = new DataModel(formattedData);
+  dm = dm.groupBy(['Origin'], [
+    {
+      field: 'Acceleration',
+      aggn: DataModel.AggregationFunctions.AVG,
+    },
+  ]);
 
-    const rows = ['Acceleration'];
-    const columns = ['Origin'];
+  // Create a global environment to share common configs across charts.
+  const env = await muze();
 
-    const canvas = env.canvas();
-    canvas
-      .rows(rows)
-      .columns(columns)
-      .data(dm)
-      .width(600)
-      .height(500)
-      .mount(mountPoint);
-  })
-  .catch(console.log.bind(console));
+  // Create a new canvas instance from the global
+  // environment to render chart on.
+  const canvas = env.canvas();
+
+  canvas
+    .data(dm) // Set data to the chart.
+    .rows(['Acceleration']) // Fields drawn on Y axis.
+    .columns(['Origin']) // Fields drawn on X axis.
+    .width(600)
+    .height(500)
+    .mount('#chart'); // Specify an element to mount on using a CSS selector.
+})().catch(console.error.bind(console));
